@@ -8,6 +8,7 @@ import Link from 'next/link'
 const SideNav = () => {
 
     const {user} = useKindeBrowserClient();
+    console.log("user image",user?.picture)
 
     const menuList=[
         {
@@ -60,7 +61,7 @@ const SideNav = () => {
             <Image src={user?.picture || '/default-user.svg'} width={35}
             height={35}
             alt='user'
-            className='rounded-full'
+            className='rounded-full bg-pink-300'
             />
             <div>
                 <h2 className='text-sm font-bold'>{user?.given_name} {user?.family_name}</h2>

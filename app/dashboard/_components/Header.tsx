@@ -6,7 +6,7 @@ import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 
 const Header = () => {
     const {user} = useKindeBrowserClient();
-
+    console.log("header user image",user?.picture)
   return (
     <div className='p-4 shadow-sm border flex justify-between'>
         <div>
