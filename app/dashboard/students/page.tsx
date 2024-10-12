@@ -23,7 +23,7 @@ const Student = () => {
         <AddNewStudent/>
         </h2>
 
-        <StudentListTable StudentList={studentList}/>
+        <StudentListTable StudentList={studentList} refreshData={GetAllStudents}/>
         </div>
   )
 }

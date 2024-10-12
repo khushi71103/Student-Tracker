@@ -1,4 +1,4 @@
-import { pgTable, serial, varchar } from "drizzle-orm/pg-core";
+import { boolean, integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
 
 // Define the GRADES table
 export const GRADES = pgTable('grades', {
@@ -13,3 +13,11 @@ export const STUDENTS = pgTable('students', {
   address: varchar('address', { length: 50 }),
   contact: varchar('contact', { length: 11 }),
 });
+
+export const ATTENDANCE = pgTable('attendance',{
+  id: serial('id').primaryKey(),
+  studentId: serial('studentId').notNull(),
+  present:boolean('present').default(false),
+  day:integer('day').notNull(),
+  date:varchar('date').notNull()
+})

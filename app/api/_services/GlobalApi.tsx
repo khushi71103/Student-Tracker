@@ -10,4 +10,7 @@ const CreateNewStudent = async (data: any) => {
     }
   };
 const GetAllStudents=()=>axios.get('/api/student');
-export default{GetAllGrades, CreateNewStudent, GetAllStudents}
+
+const DeleteStudentRecord=(id:number)=>axios.delete('/api/student?id='+id)
+
+export default{GetAllGrades, CreateNewStudent, GetAllStudents, DeleteStudentRecord}
