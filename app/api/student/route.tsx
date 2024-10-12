@@ -21,3 +21,9 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Failed to add student" }, { status: 500 });
     }
 }
+
+
+export async function GET(req: any){
+    const result=await db.select().from(STUDENTS);
+    return NextResponse.json(result);
+}

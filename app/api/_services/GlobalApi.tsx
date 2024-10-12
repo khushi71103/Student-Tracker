@@ -9,5 +9,5 @@ const CreateNewStudent = async (data: any) => {
       throw error;
     }
   };
-
-export default{GetAllGrades, CreateNewStudent}
+const GetAllStudents=()=>axios.get('/api/student');
+export default{GetAllGrades, CreateNewStudent, GetAllStudents}

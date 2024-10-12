@@ -12,7 +12,7 @@ const Header = () => {
         <div>
         </div>
         <div>
-        <Image src={user?.picture || '/default-user.svg'} width={35}
+        <Image src={'/default-user.svg'} width={35}
             height={35}
             alt='user'
             className='rounded-full'

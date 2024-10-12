@@ -10,6 +10,8 @@ const SideNav = () => {
     const {user} = useKindeBrowserClient();
     console.log("user image",user?.picture)
 
+    console.log(user?.given_name)
+
     const menuList=[
         {
             id:1,
@@ -58,12 +60,12 @@ const SideNav = () => {
         }
 
         <div className='flex gap-2 items-center bottom-5 fixed p-2'>
-            <Image src={user?.picture || '/default-user.svg'} width={35}
+            <Image src={'/default-user.svg'} width={35}
             height={35}
             alt='user'
-            className='rounded-full bg-pink-300'
+            // className='rounded-full bg-pink-300'
             />
-            <div>
+            <div className=''>
                 <h2 className='text-sm font-bold'>{user?.given_name} {user?.family_name}</h2>
                 <h2 className='text-xs text-slate-500'>{user?.email}</h2>
             </div>
