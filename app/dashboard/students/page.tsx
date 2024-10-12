@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import AddNewStudent from './_components/AddNewStudent'
 import GlobalApi from '@/app/api/_services/GlobalApi'
+import StudentListTable from './_components/StudentListTable'
 
 const Student = () => {
 
@@ -21,6 +22,8 @@ const Student = () => {
         Students
         <AddNewStudent/>
         </h2>
+
+        <StudentListTable StudentList={studentList}/>
         </div>
   )
 }
