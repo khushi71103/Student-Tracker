@@ -6,29 +6,47 @@ import GradeSelect from '../_components/GradeSelect'
 import GlobalApi from '../api/_services/GlobalApi'
 import moment from 'moment'
 import StatusList from './_components/StatusList'
+import BarChartComponent from './_components/BarChartComponent'
 
 const Dashboard = () => {
   const { setTheme } = useTheme()
   const [selectedMonth,setSelectedMonth]=useState();
   const [selectGrade,setSelectedGrade]=useState();
   const [attendanceList,setattendanceList]=useState();
+  const [totalPresentData,setTotalPresentDate]=useState([]);
 
   useEffect(()=>{
     setTheme('light')
+    GetTotalPresentCountByDays();
     getStudentAttendance();
+   
 
-  },[selectedMonth])
+  },[selectedMonth||selectGrade])
 
-  useEffect(()=>{
-    getStudentAttendance();
-
-  },[selectGrade])
+  
 
   const getStudentAttendance=()=>{
     GlobalApi.GetAttendanceList(selectGrade,moment(selectedMonth).format('MM/yyyy'))
     .then((resp: any)=>{
+      
       setattendanceList(resp.data)
 
+    })
+  }
+
+  const GetTotalPresentCountByDays=()=>{
+    GlobalApi.TotalPresentCountByDay(moment(selectedMonth).format('MM/yyyy'),selectGrade)
+    .then((resp:any)=>{
+      console.log("Data: ",resp.data)
+      console.log("Grade",selectGrade);
+      console.log("Month: ",moment(selectedMonth).format('MM/yyyy'))
+      console.log("Full API response:", resp);
+      console.log("Formatted Month: ", moment(selectedMonth).format('MM/yyyy'));
+console.log("Selected Grade: ", selectGrade);
+
+
+      
+      setTotalPresentDate(resp.data)
     })
   }
 
@@ -43,6 +61,13 @@ const Dashboard = () => {
       </div>
       </div>
       <StatusList attendanceList={attendanceList}/>
+
+      <div className='grid grid-cols-1 md:grid-cols-3'>
+      <div className='md:col-span-2'>
+        <BarChartComponent attendanceList={attendanceList}
+        totalPresentData={totalPresentData}/>
+      </div>
+      </div>
       </div>
   )
 }

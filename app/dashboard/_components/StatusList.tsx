@@ -10,6 +10,7 @@ const StatusList = ({attendanceList}:any) => {
     const [presentPerc,setPresentPerc]=useState(0);
 
     useEffect(()=>{
+      console.log(attendanceList)
         if(attendanceList)
         {
             const totalSt=getUniqueRec(attendanceList);
@@ -17,6 +18,7 @@ const StatusList = ({attendanceList}:any) => {
 
             const today=moment().format('D');
             const Presentperc=(attendanceList.length/(totalSt.length*Number(today))*100)
+            
             setPresentPerc(Presentperc);
         }
     },[attendanceList])
