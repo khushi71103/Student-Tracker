@@ -11,6 +11,9 @@ const CreateNewStudent = async (data: any) => {
   };
 const GetAllStudents=()=>axios.get('/api/student');
 
-const DeleteStudentRecord=(id:number)=>axios.delete('/api/student?id='+id)
+const DeleteStudentRecord=(id:number)=>axios.delete('/api/student?id='+id);
 
-export default{GetAllGrades, CreateNewStudent, GetAllStudents, DeleteStudentRecord}
+const GetAttendanceList=(grade:any,month:any)=>axios.get('/api/attendance?grade='+grade+'&month='+month
+)
+
+export default{GetAllGrades, CreateNewStudent, GetAllStudents, DeleteStudentRecord,GetAttendanceList}
