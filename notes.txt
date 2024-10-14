@@ -1,0 +1,53 @@
+--> Kinde for authentication
+
+--> Middleware used for next js for authentication
+
+--> Dark mode using shadcn
+
+--> _folder name : Next js understands it automatically that the files under this folders are not chosen for the route
+
+--> used map
+
+--> hooks can only be used in client side
+
+--> drizzle orm
+
+--> postgress sql
+
+--> Link  of nextjs or react
+
+--> useState,useEffect
+
+--> React Hook Form
+
+--> axios
+
+--> API call
+
+--> ags grid
+
+--> pagination
+
+--> usepathname
+
+--> understand global api
+
+--> moment lib
+
+--> passing back some value as a parameter to the component
+
+--> set()
+
+--> forEach
+
+--> Array.from
+
+--> leftjoin
+
+--> innerjoin
+
+--> limit
+
+--> desc,orderby
+
+--> Recharts
